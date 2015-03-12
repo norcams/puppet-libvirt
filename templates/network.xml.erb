@@ -20,10 +20,10 @@
   <%- end -%>
   <%- if !@portgroups.empty? -%>
   <%-   @portgroups.each do |n, pg| -%>
-  <portgroup name='<%= n -%>'<%- if pg.has_key?('default') -%> default='<%= pg.default -%>'<%- end -%> >
+  <portgroup name='<%= n -%>'<%- if pg.has_key?('default') -%> default='<%= pg['default'] -%>'<%- end -%> >
     <%- if pg.has_key?('vlan') -%>
     <vlan>
-      <%- [pg.vlan].flatten.each do |v| -%>
+      <%- [pg['vlan']].flatten.each do |v| -%>
       <tag id='<%= v -%>'/>
       <%- end -%>
     </vlan>
