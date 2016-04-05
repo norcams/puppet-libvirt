@@ -305,6 +305,9 @@ cgroup_device_acl = [ "<%= @qemu_cgroup_device_acl.join('", "') %>" ]
 #
 # clear_emulator_capabilities = 1
 
+<% if @qemu_clear_emulator_capabilities -%>
+clear_emulator_capabilities = <%= @qemu_clear_emulator_capabilities %>
+<% end -%>
 
 # If allow_disk_format_probing is enabled, libvirt will probe disk
 # images to attempt to identify their format, when not otherwise
@@ -376,7 +379,3 @@ set_process_name = 0
 #
 #keepalive_interval = 5
 #keepalive_count = 5
-
-<% if @qemu_clear_emulator_capabilities -%>
-clear_emulator_capabilities = <%= @qemu_clear_emulator_capabilities %>
-<% end -%>
